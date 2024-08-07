@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,5 +39,11 @@ public class NightVisionScript : MonoBehaviour
                 zoomBar.fillAmount = cam.fieldOfView / 100;
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        if (zoomBar != null)
+            zoomBar.fillAmount = 0.6f;
     }
 }

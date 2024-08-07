@@ -27,6 +27,7 @@ public class LookModePostProcess : MonoBehaviour
                 volume.profile = nightVisionProfile;
                 nightVisionOverlay.SetActive(true);
                 nightVisionOn = true;
+                NightVisionOff();
             }
             else if (nightVisionOn == true)
             {
@@ -36,5 +37,22 @@ public class LookModePostProcess : MonoBehaviour
                 nightVisionOn = false;
             }
         }
+
+        if (nightVisionOn == true)
+        {
+            NightVisionOff();
+        }
     }
+
+    private void NightVisionOff()
+    {
+        if (nightVisionOverlay.GetComponent<NightVisionScript>().batteryPower <= 0)
+        {
+            volume.profile = firstPersonProfile;
+            nightVisionOverlay.SetActive(false);
+            this.gameObject.GetComponent<Camera>().fieldOfView = 60;
+            nightVisionOn = false;
+        }
+    }
+    
 }

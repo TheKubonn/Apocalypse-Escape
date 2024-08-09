@@ -17,11 +17,11 @@ public class NightVisionScript : MonoBehaviour
         zoomBar = GameObject.Find("ZoomBar").GetComponent<Image>();
         cam = GameObject.Find("FirstPersonCharacter").GetComponent<Camera>();
         batteryChunks = GameObject.Find("BatteryChunks").GetComponent<Image>();
-        InvokeRepeating("BatteryDrain", drainTime, drainTime);
     }
     
     private void OnEnable()
     {
+        InvokeRepeating("BatteryDrain", drainTime, drainTime);
         if (zoomBar != null)
         {
             zoomBar.fillAmount = 0.6f;
@@ -62,4 +62,10 @@ public class NightVisionScript : MonoBehaviour
             batteryPower -= 0.25f;
         }
     }
+    
+    public void StopDrain()
+    {
+        CancelInvoke("BatteryDrain");
+    }
+    
 }

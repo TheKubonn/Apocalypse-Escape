@@ -9,7 +9,7 @@ public class FlashLightScript : MonoBehaviour
     public float batteryPower = 1.0f;
     public float drainTime = 2.0f;
     
-    void Start()
+    void OnEnable()
     {
         batteryChunks = GameObject.Find("FlashLightBatteryChunks").GetComponent<Image>();
         InvokeRepeating("FLBatteryDrain", drainTime, drainTime);
@@ -27,4 +27,10 @@ public class FlashLightScript : MonoBehaviour
             batteryPower -= 0.25f;
         }
     }
+
+    public void StopDrain()
+    {
+        CancelInvoke("FLBatteryDrain");
+    }
+    
 }

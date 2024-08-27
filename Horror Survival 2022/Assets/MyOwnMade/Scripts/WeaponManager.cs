@@ -11,21 +11,26 @@ public class WeaponManager : MonoBehaviour
         Bat,
         Axe,
         Pistol,
-        Shotgun
+        Shotgun,
+        SprayCan,
+        Bottle
     }
 
     // Exposing the enum in the editor
     public weaponSelect chosenWeapon;
     public GameObject[] weapons;
+    public AudioClip[] weaponSounds;
     
     private int weaponID = 0;
     private Animator anim;
+    private AudioSource audioPlayer;
     
     void Start()
     {
         weaponID = (int)chosenWeapon;
         //Debug.Log(weaponID);
         anim = GetComponent<Animator>();
+        audioPlayer = GetComponent<AudioSource>();
         ChangeWeapons();
     }
     
@@ -47,6 +52,13 @@ public class WeaponManager : MonoBehaviour
                 weaponID--;
                 ChangeWeapons();
             }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("Attack");
+            audioPlayer.clip = weaponSounds[weaponID];
+            audioPlayer.Play();
         }
     }
 
@@ -85,6 +97,12 @@ public class WeaponManager : MonoBehaviour
                 break;
             case weaponSelect.Shotgun:
                 transform.localPosition = new Vector3(0.02f, -0.193f, 0.46f);
+                break;
+            case weaponSelect.SprayCan:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Bottle:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
                 break;
         }
     }

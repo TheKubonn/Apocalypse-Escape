@@ -42,7 +42,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pistol Idle
-  m_Speed: 1
+  m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -97,6 +97,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: WeaponID
     m_EventTreshold: 3
+  - m_ConditionMode: 1
+    m_ConditionEvent: weaponChanged
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 715137266191261475}
   m_Solo: 0
@@ -122,6 +125,12 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: WeaponID
     m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: weaponChanged
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -202,6 +211,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: WeaponID
     m_EventTreshold: 4
+  - m_ConditionMode: 1
+    m_ConditionEvent: weaponChanged
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 220344737964852934}
   m_Solo: 0
@@ -227,6 +239,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: WeaponID
     m_EventTreshold: 3
+  - m_ConditionMode: 1
+    m_ConditionEvent: weaponChanged
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4413431419881637112}
   m_Solo: 0

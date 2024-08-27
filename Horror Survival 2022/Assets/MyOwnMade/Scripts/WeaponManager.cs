@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
         Knife,
         Cleaver,
         Bat,
+        Axe,
         Pistol,
         Shotgun
     }
@@ -74,6 +75,9 @@ public class WeaponManager : MonoBehaviour
                 transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
                 break;
             case weaponSelect.Bat:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Axe:
                 transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
                 break;
             case weaponSelect.Pistol:

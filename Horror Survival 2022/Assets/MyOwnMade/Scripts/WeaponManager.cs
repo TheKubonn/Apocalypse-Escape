@@ -59,7 +59,30 @@ public class WeaponManager : MonoBehaviour
         chosenWeapon = (weaponSelect)weaponID;
         anim.SetInteger("WeaponID", weaponID);
         anim.SetBool("weaponChanged", true);
+        Move();
         StartCoroutine(WeaponReset());
+    }
+
+    private void Move()
+    {
+        switch (chosenWeapon)
+        {
+            case weaponSelect.Knife:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Cleaver:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Bat:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Pistol:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.66f);
+                break;
+            case weaponSelect.Shotgun:
+                transform.localPosition = new Vector3(0.02f, -0.193f, 0.46f);
+                break;
+        }
     }
 
     private IEnumerator WeaponReset()

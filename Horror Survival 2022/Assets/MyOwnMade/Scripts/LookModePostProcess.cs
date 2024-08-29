@@ -14,7 +14,6 @@ public class LookModePostProcess : MonoBehaviour
     private Light flashLight;
     private bool nightVisionOn = false;
     private bool flashLightOn = false;
-    private bool inventoryOn = false;
     
     void Start()
     {
@@ -30,7 +29,7 @@ public class LookModePostProcess : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            if (nightVisionOn == false && inventoryOn == false)
+            if (nightVisionOn == false && SaveScript.inventoryOpen == false)
             {
                 volume.profile = nightVisionProfile;
                 nightVisionOverlay.SetActive(true);
@@ -49,7 +48,7 @@ public class LookModePostProcess : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (flashLightOn == false && inventoryOn == false)
+            if (flashLightOn == false && SaveScript.inventoryOpen == false)
             {
                 flashLightOverlay.SetActive(true);
                 flashLight.enabled = true;
@@ -67,10 +66,9 @@ public class LookModePostProcess : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (inventoryOn == false)
+            if (SaveScript.inventoryOpen == false)
             {
                 volume.profile = inventoryProfile;
-                inventoryOn = true;
 
                 if (flashLightOn)
                 {
@@ -88,10 +86,9 @@ public class LookModePostProcess : MonoBehaviour
                     nightVisionOn = false;
                 }
             }
-            else if (inventoryOn)
+            else if (SaveScript.inventoryOpen)
             {
                 volume.profile = firstPersonProfile;
-                inventoryOn = false;
             }
         }
 

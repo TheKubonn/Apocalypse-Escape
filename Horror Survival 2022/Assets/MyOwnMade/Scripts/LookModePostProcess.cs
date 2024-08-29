@@ -8,11 +8,13 @@ public class LookModePostProcess : MonoBehaviour
     private PostProcessVolume volume;
     public PostProcessProfile firstPersonProfile;
     public PostProcessProfile nightVisionProfile;
+    public PostProcessProfile inventoryProfile;
     public GameObject nightVisionOverlay;
     public GameObject flashLightOverlay;
     private Light flashLight;
     private bool nightVisionOn = false;
     private bool flashLightOn = false;
+    private bool inventoryOn = false;
     
     void Start()
     {
@@ -28,7 +30,7 @@ public class LookModePostProcess : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            if (nightVisionOn == false)
+            if (nightVisionOn == false && inventoryOn == false)
             {
                 volume.profile = nightVisionProfile;
                 nightVisionOverlay.SetActive(true);
@@ -47,7 +49,7 @@ public class LookModePostProcess : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (flashLightOn == false)
+            if (flashLightOn == false && inventoryOn == false)
             {
                 flashLightOverlay.SetActive(true);
                 flashLight.enabled = true;
@@ -60,6 +62,36 @@ public class LookModePostProcess : MonoBehaviour
                 flashLight.enabled = false;
                 flashLightOverlay.GetComponent<FlashLightScript>().StopDrain();
                 flashLightOn = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (inventoryOn == false)
+            {
+                volume.profile = inventoryProfile;
+                inventoryOn = true;
+
+                if (flashLightOn)
+                {
+                    flashLightOverlay.SetActive(false);
+                    flashLight.enabled = false;
+                    flashLightOverlay.GetComponent<FlashLightScript>().StopDrain();
+                    flashLightOn = false;
+                }
+
+                if (nightVisionOn)
+                {
+                    nightVisionOverlay.SetActive(false);
+                    nightVisionOverlay.GetComponent<NightVisionScript>().StopDrain();
+                    this.gameObject.GetComponent<Camera>().fieldOfView = 60;
+                    nightVisionOn = false;
+                }
+            }
+            else if (inventoryOn)
+            {
+                volume.profile = firstPersonProfile;
+                inventoryOn = false;
             }
         }
 

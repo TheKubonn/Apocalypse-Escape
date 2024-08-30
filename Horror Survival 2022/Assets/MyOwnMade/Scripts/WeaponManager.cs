@@ -21,13 +21,14 @@ public class WeaponManager : MonoBehaviour
     public GameObject[] weapons;
     public AudioClip[] weaponSounds;
     
-    private int weaponID = 0;
+    //private int weaponID = 0;
     private Animator anim;
     private AudioSource audioPlayer;
+    private int currentWeaponID;
     
     void Start()
     {
-        weaponID = (int)chosenWeapon;
+        SaveScript.weaponID = (int)chosenWeapon;
         //Debug.Log(weaponID);
         anim = GetComponent<Animator>();
         audioPlayer = GetComponent<AudioSource>();
@@ -36,22 +37,28 @@ public class WeaponManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        /*if (Input.GetKeyDown(KeyCode.X))
         {
-            if (weaponID < weapons.Length - 1)
+            if (SaveScript.weaponID < weapons.Length - 1)
             {
-                weaponID++;
+                SaveScript.weaponID++;
                 ChangeWeapons();
             }
         }
         
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (weaponID > 0)
+            if (SaveScript.weaponID > 0)
             {
-                weaponID--;
+                SaveScript.weaponID--;
                 ChangeWeapons();
             }
+        }
+        */
+
+        if (SaveScript.weaponID != currentWeaponID)
+        {
+            ChangeWeapons();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -59,7 +66,7 @@ public class WeaponManager : MonoBehaviour
             if (SaveScript.inventoryOpen == false)
             {
                 anim.SetTrigger("Attack");
-                audioPlayer.clip = weaponSounds[weaponID];
+                audioPlayer.clip = weaponSounds[SaveScript.weaponID];
                 audioPlayer.Play();
             }
         }
@@ -71,10 +78,11 @@ public class WeaponManager : MonoBehaviour
         {
             weapon.SetActive(false);
         }
-        weapons[weaponID].SetActive(true);
-        chosenWeapon = (weaponSelect)weaponID;
-        anim.SetInteger("WeaponID", weaponID);
+        weapons[SaveScript.weaponID].SetActive(true);
+        chosenWeapon = (weaponSelect)SaveScript.weaponID;
+        anim.SetInteger("WeaponID", SaveScript.weaponID);
         anim.SetBool("weaponChanged", true);
+        currentWeaponID = SaveScript.weaponID;
         Move();
         StartCoroutine(WeaponReset());
     }

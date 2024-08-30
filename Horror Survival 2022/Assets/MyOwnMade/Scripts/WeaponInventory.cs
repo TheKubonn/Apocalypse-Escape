@@ -12,6 +12,7 @@ public class WeaponInventory : MonoBehaviour
     public string[] descriptions;
     public Text description;
 
+    private int chosenWeaponNumber;
     private AudioSource audioPlayer;
     public AudioClip click, select;
     
@@ -35,6 +36,14 @@ public class WeaponInventory : MonoBehaviour
         title.text = titles[weaponNumber];
         description.text = descriptions[weaponNumber];
         audioPlayer.clip = click;
+        audioPlayer.Play();
+        chosenWeaponNumber = weaponNumber;
+    }
+
+    public void AssignWeapon()
+    {
+        SaveScript.weaponID = chosenWeaponNumber;
+        audioPlayer.clip = select;
         audioPlayer.Play();
     }
 }

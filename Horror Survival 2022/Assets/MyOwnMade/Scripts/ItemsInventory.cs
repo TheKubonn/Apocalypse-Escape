@@ -26,9 +26,21 @@ public class ItemsInventory : MonoBehaviour
         description.text = descriptions[0];
     }
     
-    void Update()
+    void OnEnable()
     {
-        
+        for (int i = 0; i < itemButtons.Length; i++)
+        {
+            if (SaveScript.itemsPickedUp[i] == false)
+            {
+                itemButtons[i].image.color = new Color(1, 1, 1, 0.06f);
+                itemButtons[i].image.raycastTarget = false;
+            }
+            if (SaveScript.itemsPickedUp[i])
+            {
+                itemButtons[i].image.color = new Color(1, 1, 1, 1);
+                itemButtons[i].image.raycastTarget = true;
+            }
+        }
     }
     
     public void ChooseItem(int itemNumber)
@@ -39,5 +51,12 @@ public class ItemsInventory : MonoBehaviour
         audioPlayer.clip = click;
         audioPlayer.Play();
         chosenItemNumber = itemNumber;
+    }
+    
+    public void AssignItem()
+    {
+        SaveScript.itemID = chosenItemNumber;
+        audioPlayer.clip = select;
+        audioPlayer.Play();
     }
 }

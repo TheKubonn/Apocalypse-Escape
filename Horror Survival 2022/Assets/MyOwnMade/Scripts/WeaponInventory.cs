@@ -42,11 +42,6 @@ public class WeaponInventory : MonoBehaviour
             }
         }
     }
-    
-    void Update()
-    {
-        
-    }
 
     public void ChooseWeapon(int weaponNumber)
     {

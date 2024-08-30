@@ -14,18 +14,14 @@ public class SaveScript : MonoBehaviour
         // 0 is knife, default starting weapon
         weaponsPickedUp[0] = true;
         weaponsPickedUp[1] = true;
+        weaponsPickedUp[6] = true;
+        weaponsPickedUp[7] = true;
         
         // 0 is flashlight 1 is night vision, default starting items  for now
         itemsPickedUp[0] = true;
         itemsPickedUp[1] = true;
         itemsPickedUp[2] = true;
         itemsPickedUp[3] = true;
-        itemsPickedUp[4] = true;
-        itemsPickedUp[5] = true;
-        itemsPickedUp[6] = true;
-        itemsPickedUp[7] = true;
-        itemsPickedUp[8] = true;
-        itemsPickedUp[9] = true;
     }
     
     void Update()

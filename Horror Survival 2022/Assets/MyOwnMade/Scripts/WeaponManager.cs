@@ -13,7 +13,8 @@ public class WeaponManager : MonoBehaviour
         Pistol,
         Shotgun,
         SprayCan,
-        Bottle
+        Bottle,
+        BottleWithCloth
     }
 
     // Exposing the enum in the editor

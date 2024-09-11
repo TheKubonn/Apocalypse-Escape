@@ -38,7 +38,8 @@ public class WeaponManager : MonoBehaviour
     
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.X))
+        /*
+         if (Input.GetKeyDown(KeyCode.X))
         {
             if (SaveScript.weaponID < weapons.Length - 1)
             {

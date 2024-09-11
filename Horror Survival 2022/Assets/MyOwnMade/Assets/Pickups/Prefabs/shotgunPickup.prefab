@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7757351565419173970}
   - component: {fileID: 7692659033613066832}
   - component: {fileID: 4980578510727029883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7854352605746990666}
   - component: {fileID: 5752352871157103896}
   - component: {fileID: 2703370168376141615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 6819788844839924731}
   - component: {fileID: 9038125780596212433}
   - component: {fileID: 8831295176418237325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: slug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,9 +324,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258675389883954014}
-  m_Layer: 0
+  - component: {fileID: 515899433943385593}
+  m_Layer: 8
   m_Name: shotgunPickup
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,6 +352,19 @@ Transform:
   - {fileID: 336930084907316270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &515899433943385593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964771765842832998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a43f85a146a89e4d934f417d1851ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chooseWeapon: 5
 --- !u!1 &7767488248377851525
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +377,7 @@ GameObject:
   - component: {fileID: 928768268797924318}
   - component: {fileID: 4424212826965211021}
   - component: {fileID: 8350202033028620757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +482,8 @@ GameObject:
   - component: {fileID: 532924455888814727}
   - component: {fileID: 6790194219766406960}
   - component: {fileID: 5777734711188425266}
-  m_Layer: 0
+  - component: {fileID: 4367794030192387242}
+  m_Layer: 8
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,3 +576,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4367794030192387242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891800105578605034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05256164, y: 0.15504557, z: 1.0512894}
+  m_Center: {x: 0, y: 0.011826891, z: 0.42485824}

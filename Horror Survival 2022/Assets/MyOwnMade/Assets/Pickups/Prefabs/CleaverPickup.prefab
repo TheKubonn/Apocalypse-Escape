@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3149569848754713638}
   - component: {fileID: 1750020756950819617}
   - component: {fileID: 7329893228928492476}
-  m_Layer: 0
+  - component: {fileID: 4637463019727241659}
+  - component: {fileID: 8109163907227008648}
+  m_Layer: 8
   m_Name: CleaverPickup
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,3 +107,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4637463019727241659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448190214548722237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8911667, y: 0.5420173, z: 0.10500649}
+  m_Center: {x: -0.42324355, y: 0.60455894, z: -0.000000036785536}
+--- !u!114 &8109163907227008648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448190214548722237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a43f85a146a89e4d934f417d1851ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chooseWeapon: 1

@@ -8,6 +8,7 @@ public class SaveScript : MonoBehaviour
     public static int itemID = 0;
     public static bool[] weaponsPickedUp = new bool[8];
     public static bool[] itemsPickedUp = new bool[13];
+    public static int[] weaponAmounts = new int[8];
     
     void Start()
     {
